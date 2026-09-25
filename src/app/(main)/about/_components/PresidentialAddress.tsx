@@ -16,7 +16,7 @@ export default function PresidentialAddress() {
 							<div className="relative aspect-4/5 w-full overflow-hidden rounded-3xl bg-base-200">
 								<Image
 									src="/assets/Executives/President.jpg"
-									alt="Sanni Nurudeen Akorede"
+									alt="Kuforiji Ayobami Waris"
 									fill
 									sizes="(min-width: 1024px) 38vw, 100vw"
 									className="object-cover"

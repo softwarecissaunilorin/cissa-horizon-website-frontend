@@ -53,13 +53,13 @@ export default function PresidentialWelcome() {
 
                             <div>
                                 <p className="text-xs font-medium uppercase tracking-[0.24em] text-base-content/55 md:text-sm">
-                                    17th CISSA President
+                                    18th CISSA President
                                 </p>
                                 <h3 className="mt-1 text-xl font-medium leading-tight tracking-tight text-base-content md:text-[2rem]">
-                                    SANNI, Nurudeen Akorede
+                                    Kuforiji Ayobami Waris
                                 </h3>
                                 <p className="mt-1 text-xs uppercase tracking-[0.2em] text-base-content/60 md:text-sm">
-                                    2025/2026 Academic Session
+                                    2026/2027 Academic Session
                                 </p>
                             </div>
                         </div>
