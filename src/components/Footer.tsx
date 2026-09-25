@@ -25,7 +25,7 @@ export const socialLinks = [
     },
     {
         label: "TikTok",
-        href: "https://www.tiktok.com/@cissa_unilorin?_r=1&_t=ZM-91XFVYEl1uF",
+        href: "https://www.tiktok.com/@cissaunilorin",
         icon: Music2,
         hoverClassName: "hover:text-cyan-300",
     },
@@ -37,16 +37,16 @@ export const socialLinks = [
     },
     {
         label: "WhatsApp TV",
-        href: "https://wa.me/7059834118",
+        href: "https://wa.me/7061835134",
         icon: MessageCircleMore,
         hoverClassName: "hover:text-emerald-400",
     },
-    {
-        label: "WhatsApp Group",
-        href: "https://chat.whatsapp.com/G5LkBmXDxQa1mYWBvhrMaa",
-        icon: MessagesSquare,
-        hoverClassName: "hover:text-emerald-400",
-    },
+    // {
+    //     label: "WhatsApp Group",
+    //     href: "https://chat.whatsapp.com/G5LkBmXDxQa1mYWBvhrMaa",
+    //     icon: MessagesSquare,
+    //     hoverClassName: "hover:text-emerald-400",
+    // },
 ];
 
 export default function Footer() {
