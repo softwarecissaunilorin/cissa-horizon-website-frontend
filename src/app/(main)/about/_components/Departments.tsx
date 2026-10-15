@@ -57,7 +57,7 @@ const departments = [
 	},
 	{
 		name: "Cybersecurity",
-		icon: ShieldCheck,
+		icon: Shield,
 		description:
 			"This department focuses on protecting digital assets, networks, and critical systems from cyber threats. Students are trained in ethical hacking, risk mitigation, and security architecture.",
 		students:
