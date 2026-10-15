@@ -1,4 +1,4 @@
-import { Clapperboard, Code2, LibraryBig, Radio, Wifi } from "lucide-react";
+import { Clapperboard, Code2, LibraryBig, Radio, Wifi, Shield } from "lucide-react";
 
 type Department = {
 	name: string;
