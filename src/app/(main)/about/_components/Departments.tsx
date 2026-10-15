@@ -55,6 +55,15 @@ const departments = [
 		focusAreas:
 			"Networking, signal processing, security, CCTV, mobile communication.",
 	},
+	{
+		name: "Cybersecurity",
+		icon: ShieldCheck,
+		description:
+			"This department focuses on protecting digital assets, networks, and critical systems from cyber threats. Students are trained in ethical hacking, risk mitigation, and security architecture.",
+		students:
+			"Those passionate about digital defense, ethical hacking, and problem-solving.",
+		focusAreas: "Network security, ethical hacking, incident response.",
+	},
 ] satisfies Department[];
 
 export default function Departments() {
