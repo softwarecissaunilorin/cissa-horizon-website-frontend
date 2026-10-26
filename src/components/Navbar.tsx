@@ -25,7 +25,7 @@ const navLinks = [
     { label: "About", href: "/about", icon: Info },
     { label: "Events", href: "/events", icon: CalendarDays },
     { label: "News", href: "/news", icon: Newspaper },
-    { label: "Materials", href: "/materials", icon: BookOpen },
+    { label: "Resources", href: "/materials", icon: BookOpen },
     { label: "Contact", href: "/contact", icon: MessageCircleMore },
 ];
 
