@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
+    BookOpen,
     CalendarDays,
     Info,
     Home,
@@ -24,6 +25,7 @@ const navLinks = [
     { label: "About", href: "/about", icon: Info },
     { label: "Events", href: "/events", icon: CalendarDays },
     { label: "News", href: "/news", icon: Newspaper },
+    { label: "Materials", href: "/materials", icon: BookOpen },
     { label: "Contact", href: "/contact", icon: MessageCircleMore },
 ];
 
@@ -109,7 +111,7 @@ export default function Navbar() {
                                 const isActive =
                                     hasMounted &&
                                     (pathname === link.href ||
-                                        ((link.href === "/news" || link.href === "/events") &&
+                                        ((link.href === "/news" || link.href === "/events" || link.href === "/materials") &&
                                             pathname.startsWith(link.href)));
 
                                 return (
@@ -182,7 +184,7 @@ export default function Navbar() {
                                         const isActive =
                                             hasMounted &&
                                             (pathname === link.href ||
-                                                ((link.href === "/news" || link.href === "/events") &&
+                                                ((link.href === "/news" || link.href === "/events" || link.href === "/materials") &&
                                                     pathname.startsWith(link.href)));
 
                                         return (
