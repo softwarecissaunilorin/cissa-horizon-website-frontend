@@ -1,4 +1,4 @@
-import { BookOpen, Compass, Eye, History, Sparkles } from "lucide-react";
+import { Compass, Eye, History, Sparkles } from "lucide-react";
 
 const stats = [
 	{ label: "Founded", value: "June 2008" },

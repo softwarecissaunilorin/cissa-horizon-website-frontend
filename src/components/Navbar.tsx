@@ -17,7 +17,6 @@ import {
     MessagesSquare,
     Music2,
     Newspaper,
-    Sparkles,
     Twitter,
     X,
     Youtube,

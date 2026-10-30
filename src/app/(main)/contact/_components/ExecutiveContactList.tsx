@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { MessageCircleMore, MessagesSquare, Sparkles } from "lucide-react";
+import { MessageCircleMore } from "lucide-react";
 
 import { executives } from "@/lib/executives";
 import { formatNumberToWhatsappLink } from "@/lib/utils/format";

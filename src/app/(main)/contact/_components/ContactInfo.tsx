@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { Mail, MapPin, MessagesSquare, Sparkles } from "lucide-react";
 import { socialLinks } from "@/components/Footer";
 

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
-import { Sparkles, Users } from "lucide-react";
+import { Users } from "lucide-react";
 
 export default function Hero() {
 	const containerRef = useRef<HTMLDivElement>(null);

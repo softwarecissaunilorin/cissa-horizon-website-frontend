@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { ArrowRight, CalendarDays, Sparkles } from "lucide-react";
+import { ArrowRight, CalendarDays } from "lucide-react";
 
 import EventCard from "@/app/(main)/events/_components/EventCard";
 import EventCardSkeleton from "@/app/(main)/events/_components/EventCardSkeleton";

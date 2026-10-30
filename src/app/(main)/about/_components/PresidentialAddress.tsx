@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Quote, Sparkles } from "lucide-react";
+import { Quote } from "lucide-react";
 
 export default function PresidentialAddress() {
 	return (
