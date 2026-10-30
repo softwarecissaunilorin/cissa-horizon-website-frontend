@@ -5,31 +5,31 @@ import Link from "next/link";
 import gsap from "gsap";
 import { ArrowRight, BookOpen, ChevronDown, Sparkles } from "lucide-react";
 
+const HEADLINES = [
+    "CISSAite? You belong here.",
+    "Hello, CISSAite. You're in the right place.",
+    "Welcome, CISSAite. This one's built for you.",
+    "Hey CISSAite, your association is here.",
+    "Hello, CISSAite. We've been expecting you.",
+];
+
 export default function Hero() {
     const containerRef = useRef<HTMLDivElement>(null);
     const subTextRef = useRef<HTMLParagraphElement>(null);
     const btnRef = useRef<HTMLDivElement>(null);
     const badgeRef = useRef<HTMLDivElement>(null);
 
-    const [headlineText, setHeadlineText] = useState(
-        "Hello, CISSAite. You're in the right place.",
-    );
+    // Typewriter State
+    const [phraseIndex, setPhraseIndex] = useState(0);
+    const [displayText, setDisplayText] = useState("");
+    const [isDeleting, setIsDeleting] = useState(false);
     const [isMounted, setIsMounted] = useState(false);
 
     useEffect(() => {
-        const headlines = [
-            "Hello, CISSAite. You're in the right place.",
-            "Hello, CISSAite. We've been expecting you.",
-            "Hey CISSAite, your association is here.",
-            "Welcome, CISSAite. This one's built for you.",
-            "CISSAite? You belong here.",
-        ];
-        setHeadlineText(
-            headlines[Math.floor(Math.random() * headlines.length)],
-        );
         setIsMounted(true);
     }, []);
 
+    // Entrance Animation for Badge, Subtitle & Buttons
     useEffect(() => {
         if (!isMounted) return;
 
@@ -41,35 +41,66 @@ export default function Hero() {
                 { y: 20, opacity: 0 },
                 { y: 0, opacity: 1, duration: 0.8, delay: 0.1 },
             )
-                .to(".word-anim", {
-                    y: 0,
-                    opacity: 1,
-                    stagger: 0.05,
-                    duration: 1.1,
-                }, "-=0.5")
                 .fromTo(
                     subTextRef.current,
                     { y: 25, opacity: 0 },
                     { y: 0, opacity: 1, duration: 0.9 },
-                    "-=0.7",
+                    "-=0.4",
                 )
                 .fromTo(
                     btnRef.current,
                     { y: 25, opacity: 0 },
                     { y: 0, opacity: 1, duration: 0.9 },
-                    "-=0.7",
+                    "-=0.6",
                 );
         }, containerRef);
 
         return () => ctx.revert();
-    }, [isMounted, headlineText]);
+    }, [isMounted]);
+
+    // Typewriter Cycling Effect
+    useEffect(() => {
+        if (!isMounted) return;
+
+        const fullPhrase = HEADLINES[phraseIndex];
+        let timer: NodeJS.Timeout;
+
+        if (!isDeleting) {
+            // Typing characters
+            if (displayText.length < fullPhrase.length) {
+                // Add natural slight variation to typing speed (55ms - 85ms)
+                const typingSpeed = 65 + Math.random() * 20;
+                timer = setTimeout(() => {
+                    setDisplayText(fullPhrase.slice(0, displayText.length + 1));
+                }, typingSpeed);
+            } else {
+                // Finished phrase, pause so user can read it
+                timer = setTimeout(() => {
+                    setIsDeleting(true);
+                }, 2400);
+            }
+        } else {
+            // Deleting characters
+            if (displayText.length > 0) {
+                timer = setTimeout(() => {
+                    setDisplayText(fullPhrase.slice(0, displayText.length - 1));
+                }, 35);
+            } else {
+                // Finished deleting, proceed to next phrase
+                setIsDeleting(false);
+                setPhraseIndex((prevIndex) => (prevIndex + 1) % HEADLINES.length);
+            }
+        }
+
+        return () => clearTimeout(timer);
+    }, [displayText, isDeleting, phraseIndex, isMounted]);
 
     return (
-        <div className="bg-base-100 p-0 sm:p-2 lg:p-4 min-h-[92vh] sm:min-h-screen flex flex-col justify-center">
+        <div className="w-full relative overflow-hidden">
             <div
                 ref={containerRef}
                 id="home"
-                className="hero min-h-[92vh] sm:min-h-screen relative overflow-hidden flex items-center justify-center sm:rounded-2xl lg:rounded-3xl flex-1"
+                className="relative w-full min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden"
                 style={{
                     backgroundImage: "url(/assets/fac3-5.jpg)",
                     backgroundSize: "cover",
@@ -80,7 +111,7 @@ export default function Hero() {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/55 to-black/85 z-0" />
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0%,rgba(0,0,0,0.4)_100%)] z-0 pointer-events-none" />
 
-                <div className="relative z-10 w-full max-w-5xl px-5 sm:px-8 pt-24 pb-16 sm:pt-28 sm:pb-20 text-center text-white mx-auto flex flex-col items-center justify-center">
+                <div className="relative z-10 w-full max-w-5xl px-5 sm:px-8 pt-28 pb-16 sm:pt-32 sm:pb-20 text-center text-white mx-auto flex flex-col items-center justify-center">
                     {/* Floating badge */}
                     <div
                         ref={badgeRef}
@@ -90,19 +121,19 @@ export default function Hero() {
                         <span>Faculty of CIS • University of Ilorin</span>
                     </div>
 
-                    {/* Headline */}
-                    <h1 className="font-bold text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[1.04] tracking-tight mb-4 sm:mb-6 max-w-4xl mx-auto">
-                        {headlineText.split(" ").map((word, index) => (
+                    {/* Headline with Typewriter Typing Effect */}
+                    <div className="min-h-[5.5rem] sm:min-h-[7.5rem] md:min-h-[9.5rem] lg:min-h-[11rem] flex items-center justify-center mb-4 sm:mb-6">
+                        <h1
+                            className="font-bold text-3xl sm:text-5xl md:text-7xl lg:text-8xl leading-[1.1] md:leading-[1.04] tracking-tight max-w-4xl mx-auto text-balance"
+                            aria-label={HEADLINES[phraseIndex]}
+                        >
+                            <span>{displayText}</span>
                             <span
-                                key={index}
-                                className="inline-block whitespace-nowrap mr-2 sm:mr-3 md:mr-5 last:mr-0"
-                            >
-                                <span className="inline-block opacity-0 translate-y-16 word-anim will-change-transform">
-                                    {word}
-                                </span>
-                            </span>
-                        ))}
-                    </h1>
+                                className="inline-block w-[3px] sm:w-[5px] md:w-[6px] h-[0.78em] bg-amber-400 ml-1.5 align-baseline rounded-xs animate-[pulse_0.9s_ease-in-out_infinite] shadow-[0_0_12px_rgba(251,191,36,0.9)]"
+                                aria-hidden="true"
+                            />
+                        </h1>
+                    </div>
 
                     {/* Subtitle */}
                     <p

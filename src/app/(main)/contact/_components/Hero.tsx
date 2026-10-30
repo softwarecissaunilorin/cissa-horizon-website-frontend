@@ -69,11 +69,11 @@ export default function Hero() {
 	}, [headlineText, isMounted]);
 
 	return (
-		<div className="bg-base-100 p-0 sm:p-2 lg:p-4 min-h-[85vh] sm:min-h-screen flex flex-col justify-center">
+		<div className="w-full relative overflow-hidden">
 			<div
 				ref={containerRef}
 				id="contact"
-				className="hero min-h-[85vh] sm:min-h-screen relative overflow-hidden flex items-center justify-center sm:rounded-2xl lg:rounded-3xl flex-1"
+				className="relative w-full min-h-[85vh] sm:min-h-screen flex items-center justify-center bg-cover bg-center overflow-hidden"
 				style={{
 					backgroundImage: "url(/assets/fac4.jpg)",
 					backgroundSize: "cover",
